@@ -2,98 +2,179 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nguyễn Minh Anh | Personal Bio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nguyễn Minh Anh | Neon Tech Bio</title>
     <meta
       name="description"
-      content="Trang bio cá nhân chuyên nghiệp cho thị trường Việt Nam: giới thiệu, kỹ năng, dự án, dịch vụ và thông tin liên hệ."
+      content="Trang bio cá nhân phong cách neon-tech cho thị trường Việt Nam, dễ deploy lên Vercel."
     />
-    <meta property="og:title" content="Nguyễn Minh Anh | Personal Bio" />
-    <meta
-      property="og:description"
-      content="Product & Growth Consultant hỗ trợ SME Việt Nam chuyển đổi số và tăng trưởng bền vững."
-    />
+    <meta name="theme-color" content="#050816" />
+
+    <meta property="og:title" content="Nguyễn Minh Anh | Neon Tech Bio" />
+    <meta property="og:description" content="Product & Growth Consultant - phong cách neon hiện đại, chuẩn chia sẻ mạng xã hội." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Nguyễn Minh Anh | Neon Tech Bio" />
+    <meta name="twitter:description" content="Bio cá nhân chuyên nghiệp theo phong cách tech, có hiệu ứng và animation." />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              neon: {
+                bg: '#050816',
+                card: '#0b1228',
+                cyan: '#22d3ee',
+                purple: '#a855f7',
+                pink: '#ec4899'
+              }
+            },
+            boxShadow: {
+              neon: '0 0 18px rgba(34,211,238,0.55), 0 0 42px rgba(168,85,247,0.35)'
+            },
+            fontFamily: {
+              orbitron: ['Orbitron', 'sans-serif'],
+              bevn: ['Be Vietnam Pro', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <main class="container">
-      <section class="hero card">
-        <div class="avatar">MA</div>
-        <div>
-          <p class="tag">📍 TP. Hồ Chí Minh, Việt Nam</p>
-          <h1>Nguyễn Minh Anh</h1>
-          <p class="headline">Product & Growth Consultant cho doanh nghiệp Việt</p>
-          <p class="intro">
-            Tôi giúp các startup và SME tại Việt Nam xây dựng sản phẩm số, tối ưu vận hành và tăng trưởng
-            doanh thu bằng dữ liệu.
-          </p>
+  <body class="font-bevn bg-neon-bg text-slate-100 overflow-x-hidden">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <header class="sticky top-0 z-50 backdrop-blur bg-slate-950/60 border-b border-cyan-400/20">
+      <div class="mx-auto w-[min(1100px,92%)] py-3 flex items-center justify-between">
+        <a class="font-orbitron text-cyan-300 tracking-widest text-lg" href="#">MA//BIO</a>
+        <nav aria-label="Main">
+          <ul class="flex gap-4 text-sm md:text-base">
+            <li><a href="#about" class="hover:text-cyan-300">Giới thiệu</a></li>
+            <li><a href="#skill" class="hover:text-cyan-300">Năng lực</a></li>
+            <li><a href="#project" class="hover:text-cyan-300">Dự án</a></li>
+            <li><a href="#contact" class="hover:text-cyan-300">Liên hệ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto w-[min(1100px,92%)] py-8 md:py-14 space-y-6 md:space-y-8 relative z-10">
+      <section id="about" class="neon-card p-6 md:p-9" data-aos="fade-up">
+        <p class="text-cyan-300 font-semibold">📍 TP. Hồ Chí Minh, Việt Nam</p>
+        <h1 class="font-orbitron text-3xl md:text-5xl mt-2 neon-text">NGUYỄN MINH ANH</h1>
+        <p class="text-lg md:text-xl text-purple-300 mt-2">Product & Growth Consultant cho startup và SME Việt Nam</p>
+        <p class="text-slate-300 mt-4 leading-7 max-w-3xl">
+          Đồng hành cùng founder/leadership team để xây sản phẩm đúng nhu cầu thị trường, tối ưu funnel tăng trưởng,
+          và chuẩn hóa vận hành dựa trên dữ liệu.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="mailto:hello@minhanh.vn" class="btn-neon"><i class="fa-solid fa-bolt"></i> Đặt lịch tư vấn</a>
+          <a href="#project" class="btn-outline"><i class="fa-solid fa-diagram-project"></i> Xem case study</a>
         </div>
       </section>
 
-      <section class="card">
-        <h2>Điểm nổi bật</h2>
-        <ul class="highlights">
-          <li>8+ năm kinh nghiệm trong Product Management & Digital Marketing.</li>
-          <li>Đã triển khai hơn 25 dự án chuyển đổi số cho các ngành bán lẻ, giáo dục, y tế.</li>
-          <li>Từng giữ vai trò Product Lead tại công ty công nghệ Top 50 Việt Nam.</li>
-        </ul>
+      <section class="grid md:grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="100">
+        <article class="metric-card"><strong>8+ năm</strong><span>Product & Growth</span></article>
+        <article class="metric-card"><strong>25+ dự án</strong><span>Cho startup/SME</span></article>
+        <article class="metric-card"><strong>42%</strong><span>Mức tăng retention cao nhất</span></article>
       </section>
 
-      <section class="card two-col">
-        <div>
-          <h2>Kỹ năng chuyên môn</h2>
-          <div class="chips">
-            <span>Product Strategy</span>
-            <span>Go-to-Market</span>
-            <span>CRM Automation</span>
-            <span>Performance Marketing</span>
-            <span>Data Analytics</span>
-            <span>Team Leadership</span>
+      <section id="skill" class="neon-card p-6 md:p-9" data-aos="fade-up" data-aos-delay="150">
+        <h2 class="section-title">Năng lực cốt lõi</h2>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <article class="glass-card"><h3>Product Strategy</h3><p>ICP, roadmap, định vị giá trị và ưu tiên theo business impact.</p></article>
+          <article class="glass-card"><h3>Growth System</h3><p>Tối ưu AARRR funnel, CAC/LTV, automation và lifecycle messaging.</p></article>
+          <article class="glass-card"><h3>Data-driven Ops</h3><p>Thiết kế dashboard KPI, chu kỳ review tuần và quyết định nhanh theo dữ liệu.</p></article>
+        </div>
+      </section>
+
+      <section id="project" class="neon-card p-6 md:p-9" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="section-title">Case study tiêu biểu</h2>
+        <div class="timeline mt-5">
+          <div class="timeline-item">
+            <h3>Retail App Revamp</h3>
+            <p>Tăng <strong>42% retention</strong> sau 4 tháng bằng cải tiến onboarding + loyalty flow.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>EdTech Growth Plan</h3>
+            <p>Giảm <strong>28% CAC</strong> khi tái cấu trúc paid media và CRM workflow.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Clinic CRM Transformation</h3>
+            <p>Tăng <strong>35% tỷ lệ tái khám</strong> với hệ thống follow-up automation.</p>
           </div>
         </div>
-        <div>
-          <h2>Dự án tiêu biểu</h2>
-          <ul class="projects">
-            <li><strong>Retail App Revamp:</strong> Tăng 42% tỉ lệ giữ chân user sau 4 tháng.</li>
-            <li><strong>EdTech Growth Plan:</strong> Giảm 28% chi phí thu hút khách hàng.</li>
-            <li><strong>Clinic CRM:</strong> Tự động hóa chăm sóc khách hàng, tăng 35% tái khám.</li>
-          </ul>
-        </div>
       </section>
 
-      <section class="card">
-        <h2>Dịch vụ</h2>
-        <div class="services">
-          <article>
-            <h3>Tư vấn chiến lược sản phẩm</h3>
-            <p>Xây lộ trình sản phẩm phù hợp thị trường Việt Nam và mục tiêu kinh doanh.</p>
-          </article>
-          <article>
-            <h3>Tối ưu tăng trưởng</h3>
-            <p>Thiết kế funnel tăng trưởng và hệ thống đo lường hiệu quả theo dữ liệu thực tế.</p>
-          </article>
-          <article>
-            <h3>Đào tạo đội ngũ nội bộ</h3>
-            <p>Huấn luyện đội Product/Marketing theo framework thực chiến, dễ triển khai.</p>
-          </article>
+      <section id="contact" class="neon-card p-6 md:p-9" data-aos="zoom-in-up">
+        <h2 class="section-title">Liên hệ hợp tác</h2>
+        <div class="grid gap-2 mt-3 text-slate-300">
+          <p><i class="fa-solid fa-envelope text-cyan-300 mr-2"></i><a href="mailto:hello@minhanh.vn">hello@minhanh.vn</a></p>
+          <p><i class="fa-brands fa-linkedin text-cyan-300 mr-2"></i><a href="https://www.linkedin.com/in/minhanhvn">linkedin.com/in/minhanhvn</a></p>
+          <p><i class="fa-solid fa-phone text-cyan-300 mr-2"></i><a href="tel:+84901234567">+84 901 234 567</a></p>
         </div>
-      </section>
-
-      <section class="card contact">
-        <h2>Liên hệ hợp tác</h2>
-        <p>Email: <a href="mailto:hello@minhanh.vn">hello@minhanh.vn</a></p>
-        <p>LinkedIn: <a href="#" aria-label="LinkedIn">linkedin.com/in/minhanhvn</a></p>
-        <p>Điện thoại/Zalo: <a href="tel:+84901234567">+84 901 234 567</a></p>
-        <a class="btn" href="mailto:hello@minhanh.vn">Đặt lịch tư vấn 30 phút</a>
       </section>
     </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true, easing: 'ease-out-cubic' });
+
+      gsap.from('.neon-card', {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power2.out'
+      });
+
+      const canvas = document.getElementById('starfield');
+      const ctx = canvas.getContext('2d');
+      const stars = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function createStars(count = 120) {
+        stars.length = 0;
+        for (let i = 0; i < count; i += 1) {
+          stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.4, v: 0.08 + Math.random() * 0.25 });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach((s) => {
+          s.y += s.v;
+          if (s.y > canvas.height) s.y = -2;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(34,211,238,0.75)';
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+
+      resizeCanvas();
+      createStars();
+      draw();
+      window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+    </script>
   </body>
 </html>
